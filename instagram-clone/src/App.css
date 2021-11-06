@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  background-color: #fafafa;
+}
+
+.app__posts {
+  padding: 30px;
+}
+
+.app__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 20px;
+  object-fit: contain;
+  border-bottom: 1px solid lightgray;
+}
+
+.app__postsRight {
+  margin-left: 20px;
+  border: 1px solid black;
+}
+
+.app__headerImage {
+  object-fit: contain;
+}
+
+.app__signUp {
+  display: flex;
+  flex-direction: column;
+}
