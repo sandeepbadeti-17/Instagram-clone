@@ -167,7 +167,7 @@ function App() {
                 </div>
               ) : (
                 <div>
-                  <h3>You need to login to Upload images and Comment</h3>
+                  <h3>Sorry you need to login to Upload images and Comment</h3>
                 </div>
               )
             }
