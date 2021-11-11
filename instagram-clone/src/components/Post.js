@@ -38,7 +38,7 @@ function Post({ username, user, postId, caption, imageUrl }) {
     return (
         <div className='post'>
             <div className="post__header">
-                <Avatar className='post__avatar' alt="Sandeep" src='https://pbs.twimg.com/profile_images/1214495220328349696/eQgYYrwQ_400x400.jpg' />
+                <Avatar className='post__avatar' alt={username} src='https://th.bingdaf.com/' />
                 <h3>{username}</h3>
             </div>
             <img className='post__image' src={imageUrl} alt="" />
@@ -46,7 +46,6 @@ function Post({ username, user, postId, caption, imageUrl }) {
 
             <div className="post__comments">
                 {comments.map((comment) => (
-
                     <p>
                         <strong>{comment.username}</strong> {comment.text}
                     </p>

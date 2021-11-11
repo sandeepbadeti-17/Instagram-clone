@@ -4,11 +4,8 @@ import Post from './components/Post'
 import ImageUpload from './components/ImageUpload'
 import { db, auth } from './firebase';
 import Box from '@mui/material/Box';
-// import Button from '@mui/material/Button';
 import { Button, Input } from '@material-ui/core';
-// import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import InstagramEmbed from 'react-instagram-embed';
 
 const style = {
   position: 'absolute',
@@ -129,57 +126,55 @@ function App() {
       </Modal>
 
       <div className='app__header'>
-        <img className='app__headerImage'
-          src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="" />
+        <div className='app__header__start'>
+          <div className="app__header__inside">
+            <img className='app__headerImage'
+              src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="" />
 
-        {user ? (
-          <div>
-            <Button onClick={() => auth.signOut()}>Logout</Button>
+            {user ? (
+              <div>
+                <Button onClick={() => auth.signOut()}>Logout</Button>
+              </div>
+
+            ) : (
+              <div className="app__loginContainer">
+                <Button onClick={() => setOpenSignIn(true)}>Sign In</Button>
+                <Button onClick={() => setOpen(true)}>Sign Up</Button>
+              </div>
+            )}
           </div>
+        </div>
 
-        ) : (
-          <div className="app__loginContainer">
-            <Button onClick={() => setOpenSignIn(true)}>Sign In</Button>
-            <Button onClick={() => setOpen(true)}>Sign Up</Button>
+        {/* </div> */}
+
+        <div className="app__posts">
+          <div className="app__postLeft">
+
+            {
+              posts.map(({ id, post }) => {
+                return (
+                  <Post key={id} postId={id} username={post.username} user={user} caption={post.caption} imageUrl={post.imageUrl} />)
+              })
+            }
           </div>
-        )}
-      </div>
+          <div className="app__postsRight">
 
-      <div className="app__posts">
-        <div className="app__postLeft">
 
-          {
-            posts.map(({ id, post }) => {
-              return (
-                <Post key={id} postId={id} username={post.username} user={user} caption={post.caption} imageUrl={post.imageUrl} />)
-            })
-          }
-        </div>
-        <div className="app__postsRight">
-
-          <InstagramEmbed
-            url='https://instagram.fhyd1-4.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/p750x750/250807748_476934923850060_2313378595850213701_n.jpg?_nc_ht=instagram.fhyd1-4.fna.fbcdn.net&_nc_cat=1&_nc_ohc=IrPgbCK7DX8AX-E9uKo&edm=AIQHJ4wBAAAA&ccb=7-4&oh=81f03efc8914cfeb3bfefb106c30cbf5&oe=6187A3E5&_nc_sid=7b02f1&ig_cache_key=MjY5NzI3OTg5Mzk4MDgyMjYxNg%3D%3D.2-ccb7-4'
-            maxWidth={320}
-            hideCaption={false}
-            containerTagName='div'
-            protocol=''
-            injectScript
-            onLoading={() => { }}
-            onSuccess={() => { }}
-            onAfterRender={() => { }}
-            onFailure={() => { }}
-          />
-
+            {
+              user ? (
+                <div>
+                  <ImageUpload username={user.displayName} user={user} />
+                </div>
+              ) : (
+                <div>
+                  <h3>You need to login to Upload images and Comment</h3>
+                </div>
+              )
+            }
+          </div>
         </div>
       </div>
-
-
-      {user?.displayName ? (
-        <ImageUpload username={user.displayName} />
-      ) : (
-        <h3>Sorry you need to login to Upload</h3>
-      )}
-    </div>
+    </div >
   );
 }
 

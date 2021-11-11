@@ -2,18 +2,19 @@ import { Button } from '@material-ui/core'
 import React from 'react'
 import { useState } from 'react'
 import firebase from 'firebase'
+import Avatar from '@material-ui/core/Avatar'
 import { db, storage } from '../firebase'
 import '../css/imageUpload.css'
-function ImageUpload({ username }) {
+function ImageUpload({ username, user }) {
     const [image, setImage] = useState(null);
     const [progress, setProgress] = useState(0)
     const [caption, setCaption] = useState('');
-
     const handleChange = (e) => {
         if (e.target.files[0]) {
             setImage(e.target.files[0])
         }
     }
+
 
     const handleUpload = () => {
         const uploadTask = storage.ref(`images/${image.name}`).put(image)
@@ -52,12 +53,16 @@ function ImageUpload({ username }) {
     }
     return (
         <div className='imageUpload'>
-            <progress className='imageUpload__progress' value={progress} max="100" />
-            <input type="text" placeholder='Enter the caption...'
+            <div className='imageUpload__profile'>
+                <Avatar className='imageUpload__avatar' alt={username} src='https://th.bingdaf.com/' />
+                <div>{username}</div>
+            </div>
+            <input type="file" className='imageUpload__file' onChange={handleChange} />
+            <input type="text" className='imageUpload__caption' placeholder='Enter the caption...'
                 onChange={event => setCaption(event.target.value)}
                 value={caption} />
-            <input type="file" onChange={handleChange} />
-            <Button onClick={handleUpload}>Upload</Button>
+            <progress className='imageUpload__progress' value={progress} max="100" />
+            <Button variant="contained" onClick={handleUpload}>Upload</Button>
         </div>
     )
 }

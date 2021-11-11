@@ -10,23 +10,41 @@
 
 .app__posts {
   padding: 30px;
+  display: flex;
+  margin: auto;
+  max-width: 800px;
+  position: relative;
+
 }
 
 .app__header {
+  background-color: white;
+}
+
+.app__header__start {
   position: sticky;
   top: 0;
+  border-bottom: 1px solid lightgray;
   z-index: 1;
+}
+
+.app__header__inside {
   display: flex;
   justify-content: space-between;
-  background-color: white;
-  padding: 20px;
+  padding: 15px 30px;
   object-fit: contain;
-  border-bottom: 1px solid lightgray;
+  margin: auto;
+  max-width: 800px;
+  background-color: white;
 }
 
 .app__postsRight {
+  max-width: 500px;
   margin-left: 20px;
-  border: 1px solid black;
+}
+
+.app__postsRight h3 {
+  max-width: 300px;
 }
 
 .app__headerImage {
@@ -36,4 +54,14 @@
 .app__signUp {
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width:720px) {
+  .app__posts {
+    flex-direction: column-reverse;
+  }
+
+  .app__postsRight {
+    margin: 0 0 20px 0;
+  }
 }

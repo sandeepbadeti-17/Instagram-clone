@@ -1,3 +1,7 @@
+:root {
+    --post__text: 12px 15px;
+}
+
 .post {
     background-color: white;
     max-width: 500px;
@@ -14,13 +18,13 @@
 
 .post__text {
     font-weight: normal;
-    padding: 20px;
+    padding: var(--post__text);
 }
 
 .post__header {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: var(--post__text);
     /* margin: 10px; */
 }
 
@@ -41,13 +45,14 @@
 }
 
 .post__comments {
-    padding: 20px;
+    padding: var(--post__text);
 }
 
 .post__button {
     flex: 0;
     border: none;
-    color: #6082a3;
-    background-color: transparent;
+    color: black;
+    padding: 10px;
+    background-color: #d6d6d696;
     border-top: 1px solid lightgrey;
 }
