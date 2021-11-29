@@ -2,12 +2,12 @@ import firebase from 'firebase'
 
 
 const firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyCwosE7dvxGquAGJxPpsM10Tp4Y6-Dp5Zs",
-    authDomain: "instagram-clone-f6e0f.firebaseapp.com",
-    projectId: "instagram-clone-f6e0f",
-    storageBucket: "instagram-clone-f6e0f.appspot.com",
-    messagingSenderId: "349407371099",
-    appId: "1:349407371099:web:13531eccca292d34b4c47e"
+    apiKey: "AIzaSyB6Lw3KkLcTdwiw4QNM9YUJ3UKuf65Voe0",
+    authDomain: "instagram-clone-19624.firebaseapp.com",
+    projectId: "instagram-clone-19624",
+    storageBucket: "instagram-clone-19624.appspot.com",
+    messagingSenderId: "962703548208",
+    appId: "1:962703548208:web:216203658980582bc3b2f5"
 });
 
 
